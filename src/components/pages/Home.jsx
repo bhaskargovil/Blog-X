@@ -10,9 +10,8 @@ function Home() {
 
   useEffect(() => {
     service.getPosts([]).then((post) => {
-      if (post) setPosts(post);
+      if (post) setPosts(post.documents);
     });
-    setPosts([]);
   }, [status]);
 
   if (posts.length == 0) {
