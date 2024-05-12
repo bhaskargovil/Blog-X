@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import service from "../../appwrite/auth_service_doc";
 import Container from "../container/Container";
 import Postcard from "../elements/Postcard";
+import { useSelector } from "react-redux";
 
 function AllPosts() {
   const [posts, setPosts] = useState([]);
+  const userData = useSelector((state) => state.userData)
 
   useEffect(() => {
     service.getPosts([]).then((postList) => {
